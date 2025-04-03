@@ -7,10 +7,6 @@ public class TaskManager {
     private int nextId = 1;
 
     public void addTask(String description) {
-        if(description == null || description.trim().isEmpty()){
-            System.out.println("Error: Description cannot be empty.");
-            return;
-        }
         Task task = new Task(nextId++, description);
         tasks.add(task);
         System.out.println("Added: " + task);

@@ -14,6 +14,6 @@ public class TaskTest {
     public void testMarkTaskAsCompleted(){
         Task task = new Task(2, "Complete this task");
         task.setCompleted(true);
-        assertTrue(task.isCompleted());}
+        assertTrue(task.isCompleted(), "This is my first PR");}
 
 }

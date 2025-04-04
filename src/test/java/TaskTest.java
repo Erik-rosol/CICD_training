@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskTest {
     @Test
@@ -11,4 +10,10 @@ public class TaskTest {
         assertEquals("Write unit test", task.getDescription());
         assertFalse(task.isCompleted());
     }
+    @Test
+    public void testMarkTaskAsCompleted(){
+        Task task = new Task(2, "Complete this task");
+        task.setCompleted(true);
+        assertTrue(task.isCompleted(), "This is my first PR");}
+
 }

@@ -28,6 +28,8 @@ public class Task {
 
     @Override
     public String toString() {
+
         return String.format("%s #%d - %s (Created_ %s)", completed ? "[X]" : "[ ]",id, description, createdAt);
     }
 }
+

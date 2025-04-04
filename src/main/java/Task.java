@@ -19,6 +19,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return (completed ? "[X]" : "[ ]") + " Task " + id + ": " + description;
+        return String.format("%s #%d - %s", completed ? "[X]" : "[ ]",id, description);
     }
+
 }

@@ -14,10 +14,10 @@ pipeline{
         {
                 steps {
                     script{
-                        setGitHunPullRequestStatus context: 'Build', state: "PENDING"
+                        setGitHubPullRequestStatus context: 'Build', state: "PENDING"
                         echo 'Building the project...'
                         sh 'mvn clean package -DskipTests=true'
-                        setGitHunPullRequestStatus context: 'Build', state: "SUCCESS"
+                        setGitHubPullRequestStatus context: 'Build', state: "SUCCESS"
                         }
                    }
                 }
@@ -25,20 +25,20 @@ pipeline{
         {
             steps{
                 script{
-                    setGitHunPullRequestStatus context: 'Build', state: "PENDING"
+                    setGitHubPullRequestStatus context: 'Build', state: "PENDING"
                     echo 'Running test'
                     sh 'mvn test -e'
-                    setGitHunPullRequestStatus context: 'Build', state: "SUCCESS"
+                    setGitHubPullRequestStatus context: 'Build', state: "SUCCESS"
                 }
             }
         }
     }
 post{
     failure{
-        setGitHunPullRequestStatus context: 'Test', state: 'FAILURE'
+        setGitHubPullRequestStatus context: 'Test', state: 'FAILURE'
         }
     success{
-        setGitHunPullRequestStatus context: 'Test', state: 'SUCCESS'
+        setGitHubPullRequestStatus context: 'Test', state: 'SUCCESS'
         }
     }
 }

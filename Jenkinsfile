@@ -1,15 +1,14 @@
 pipeline{
     agent any
 
-    environment{
-    SONARQUBE_SCANNER_HOME = tool 'SonarQube Scanner'
     }
+
     stages{
         stage('Clone')
         {
           steps  {
                 echo 'Cloning the Repo'
-                git branch: 'main', url: 'https://github.com/Erik-rosol/CICD_training.git'
+                git branch: 'main', url: 'https://github.com/Erik-rosol/Jenkins-Trainning.git'
             }
           }
         stage('Build')
@@ -28,13 +27,7 @@ pipeline{
                 sh 'mvn test -e'
             }
         }
-        stage('SonarQube Analysis')
-                {
-                    steps{
-                        withSonarQubeEnv('SonarQube'){
-                        sh 'mvn sonar:sonar'}
-                    }
-                }
+
     }
 
 }

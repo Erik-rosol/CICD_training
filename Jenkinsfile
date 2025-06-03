@@ -7,7 +7,7 @@ pipeline{
         {
           steps  {
                 echo 'Cloning the Repo'
-                git branch: 'main', url: 'https://github.com/Erik-rosol/Jenkins-Trainning.git'
+                git branch: 'main', url: 'https://github.com/Erik-rosol/CICD_training.git'
             }
           }
         stage('Build')

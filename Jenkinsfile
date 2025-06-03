@@ -27,12 +27,12 @@ pipeline{
             }
         }
     }
-}
-post{
+}post{
     failure{
-        setGitHunPullRequestStatus context: 'Test', state: 'FAILURE'}
+        setGitHunPullRequestStatus context: 'Test', state: 'FAILURE'
+        }
     success{
-        setGitHunPullRequestStatus context: 'Test', state: 'SUCCESS'}
+        setGitHunPullRequestStatus context: 'Test', state: 'SUCCESS'
         }
     }
 }

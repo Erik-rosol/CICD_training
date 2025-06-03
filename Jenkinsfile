@@ -27,7 +27,7 @@ pipeline{
             }
         }
     }
-}post{
+post{
     failure{
         setGitHunPullRequestStatus context: 'Test', state: 'FAILURE'
         }

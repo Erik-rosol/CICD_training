@@ -28,3 +28,11 @@ pipeline{
         }
     }
 }
+post{
+    failure{
+        setGitHunPullRequestStatus context: 'Test', state: 'FAILURE'}
+    success{
+        setGitHunPullRequestStatus context: 'Test', state: 'SUCCESS'}
+        }
+    }
+}

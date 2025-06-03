@@ -13,17 +13,19 @@ pipeline{
         stage('Build')
         {
                 steps {
-                        script {
-                            echo 'Building the project...'
-                            sh 'mvn clean package -DskipTests=true'
-                                }
+                    setGitHunPullRequestStatus context: 'Build', state: "PENDING"
+                    echo 'Building the project...'
+                    sh 'mvn clean package -DskipTests=true'
+                    setGitHunPullRequestStatus context: 'Build', state: "SUCCESS"
                         }
                 }
         stage('Test')
         {
             steps{
+                setGitHunPullRequestStatus context: 'Build', state: "PENDING"
                 echo 'Running test'
                 sh 'mvn test -e'
+                setGitHunPullRequestStatus context: 'Build', state: "SUCCESS"
             }
         }
     }
